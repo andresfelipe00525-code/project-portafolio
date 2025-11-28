@@ -1,626 +1,349 @@
 <!DOCTYPE html>
 <html lang="es">
 	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<meta name="author" content="Alejandra Olazagasti" />
-		<meta name="description" content="No más de 165 caracteres" />
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1" />
+		<meta name="author" content="Andrés Felipe" />
 		<meta
-			name="keywords"
-			content="palabra clave 1, palabra clave 2, palabra clave 3"
+			name="description"
+			content="Andrés Felipe - Desarrollador Web Full Stack (HTML, CSS, JavaScript, React, Node.js)"
 		/>
-		<meta name="theme-color" content="#09f" />
-		<!-- Iconos  -->
+		<meta name="theme-color" content="#f7f7f7" />
+		<title>Andrés Felipe — Desarrollador Full Stack</title>
+
+		<!-- Fonts & Icons -->
 		<link
-			href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+			href="https://cdn.jsdelivr.net/npm/boxicons@2.1.4/css/boxicons.min.css"
 			rel="stylesheet"
 		/>
-		<!-- Fuente -->
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link
-			href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+			href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
 			rel="stylesheet"
 		/>
-		<title>Portafolio</title>
-		<link rel="icon" href="assets/img/logo.png" type="image/png" />
+
+		<!-- Style -->
 		<link rel="stylesheet" href="assets/css/style.css" />
-		<script type="module" src="assets/js/main.js"></script>
-		<!-- EMAIL JS -->
-		<script
-			type="text/javascript"
-			src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
-		></script>
-		<script type="text/javascript">
-			(function () {
-				emailjs.init({
-					publicKey: 'vM-4iXnxMTrVF1mD8IC',
-				});
-			})();
-		</script>
 	</head>
 
 	<body>
 		<!-- Loader -->
-		<div class="loader flex--container loader--hidden">
-			<img src="assets/img/logo.svg" alt="Loader Image" class="loader__logo" />
+		<div id="loader" class="loader">
+			<img src="assets/img/logo.svg" alt="loader" />
 		</div>
-		<header class="header">
-			<nav class="navbar grid--container flex--container">
-				<a class="navbar__logo flex--container" href="#"
-					><i class="bx bxs-registered"></i>Bellota</a
-				>
 
-				<div id="nav" class="navbar__menu">
-					<a href="#close"
-						><i class="bx bx-x btn__close navbar__icon flex--container"></i
-					></a>
+		<!-- Header -->
+		<header class="site-header">
+			<div class="container header-inner">
+				<a class="brand" href="#home">
+					<img src="assets/img/logo.svg" alt="logo" class="brand-logo" />
+					<span class="brand-text">Andrés Felipe</span>
+				</a>
 
-					<ul class="navbar__list flex--container">
-						<li class="navbar__item">
-							<a class="navbar__link active" href="#home">Inicio</a>
-						</li>
-						<li class="navbar__item">
-							<a class="navbar__link" href="#about">Acerca de Mí</a>
-						</li>
-						<li class="navbar__item">
-							<a class="navbar__link" href="#skills">Habilidades</a>
-						</li>
-						<li class="navbar__item">
-							<a class="navbar__link" href="#projects">Portafolio</a>
-						</li>
-						<li class="navbar__item">
-							<a class="navbar__link" href="#contact">Contacto</a>
-						</li>
-					</ul>
+				<nav class="nav" aria-label="Main navigation">
+					<a class="nav-link" href="#home">Inicio</a>
+					<a class="nav-link" href="#about">Sobre mí</a>
+					<a class="nav-link" href="#skills">Habilidades</a>
+					<a class="nav-link" href="#projects">Proyectos</a>
+					<a class="nav-link" href="#contact">Contacto</a>
+				</nav>
+
+				<div class="controls">
+					<button id="dark-toggle" class="icon-btn" aria-label="Toggle tema">
+						<i class="bx bx-moon"></i>
+					</button>
+					<button
+						id="menu-toggle"
+						class="icon-btn mobile-only"
+						aria-label="Abrir menú"
+					>
+						<i class="bx bx-menu"></i>
+					</button>
 				</div>
-
-				<div class="navbar__toggles flex--container">
-					<div class="navbar__toggle--darkmode flex--container">
-						<input
-							type="checkbox"
-							name="color-scheme"
-							id="darkmode-toggle"
-							class="navbar__toggle--darkmode-input"
-						/>
-						<label for="darkmode-toggle" class="navbar__toggle--darkmode-label">
-							<i class="bx bx-sun navbar__toggle--darkmode-sun"></i>
-							<i class="bx bx-moon navbar__toggle--darkmode-moon"></i>
-						</label>
-					</div>
-					<div class="navbar__toggle--language flex--container">
-						<input
-							type="checkbox"
-							name="language-toggle"
-							id="language-toggle"
-							class="navbar__toggle--language-input"
-						/>
-						<label
-							for="language-toggle"
-							class="navbar__toggle--language-label"
-						></label>
-					</div>
-				</div>
-				<a href="#nav"><i class="bx bx-menu btn__open navbar__icon"></i></a>
-			</nav>
+			</div>
 		</header>
 
+		<!-- Mobile menu -->
+		<div id="mobile-menu" class="mobile-menu" aria-hidden="true">
+			<button id="mobile-close" class="icon-btn" aria-label="Cerrar menú">
+				<i class="bx bx-x"></i>
+			</button>
+			<nav class="mobile-nav">
+				<a class="nav-link" href="#home">Inicio</a>
+				<a class="nav-link" href="#about">Sobre mí</a>
+				<a class="nav-link" href="#skills">Habilidades</a>
+				<a class="nav-link" href="#projects">Proyectos</a>
+				<a class="nav-link" href="#contact">Contacto</a>
+			</nav>
+		</div>
+
+		<!-- MAIN -->
 		<main>
-			<section id="home" class="home">
-				<i class="bx bxl-html5 home__layer home__layer--1" data-speed="-5"></i>
-				<i
-					class="bx bxl-javascript home__layer home__layer--2"
-					data-speed="5"
-				></i>
-				<i class="bx bxl-css3 home__layer home__layer--3" data-speed="2"></i>
-				<i class="bx bxl-nodejs home__layer home__layer--4" data-speed="6"></i>
-				<i class="bx bxl-react home__layer home__layer--5" data-speed="8"></i>
-				<i
-					class="bx bxl-tailwind-css home__layer home__layer--6"
-					data-speed="-2"
-				></i>
-				<i class="bx bxl-redux home__layer home__layer--7" data-speed="4"></i>
-				<i
-					class="bx bxl-typescript home__layer home__layer--8"
-					data-speed="-2"
-				></i>
-				<i class="bx bxl-git home__layer home__layer--9" data-speed="6"></i>
-				<i
-					class="bx bxl-graphql home__layer home__layer--10"
-					data-speed="-7"
-				></i>
-				<i
-					class="bx bx-code-alt home__layer home__layer--11"
-					data-speed="-5"
-				></i>
-				<div class="home__container grid--container">
-					<div class="home__image">
-						<img
-							src="assets/img/beyota-hero.png"
-							alt="profile photo"
-							title="Tu nombre"
-						/>
-					</div>
+			<!-- HERO -->
+			<section id="home" class="hero container">
+				<div class="hero-left">
+					<h1 class="hero-title">
+						Hola, soy <span class="accent">Andrés Felipe</span>
+					</h1>
+					<p class="hero-sub">
+						Desarrollador Web Full Stack — me enfoco en construir aplicaciones
+						robustas, limpias y accesibles con JavaScript, React y Node.js.
+					</p>
 
-					<ul class="home__social flex--container">
-						<li class="home__social-item">
-							<a class="home__social-link" href="#" target="_blank"
-								><i class="bx bxl-linkedin"></i
-							></a>
-						</li>
-						<li class="home__social-item">
-							<a class="home__social-link" href="#" target="_blank"
-								><i class="bx bxl-whatsapp"></i
-							></a>
-						</li>
-						<li class="home__social-item">
-							<a class="home__social-link" href="#" target="_blank"
-								><i class="bx bxl-github"></i
-							></a>
-						</li>
-						<li class="home__social-item">
-							<a class="home__social-link" href="#" target="_blank"
-								><i class="bx bx-envelope"></i
-							></a>
-						</li>
-					</ul>
-
-					<div class="home__info">
-						<h1 class="home__title">Hey, soy Bellota</h1>
-
-						<p class="home__description">
-							Soy desarrolladora web, apasionada por la tecnología y la
-							programación.
-						</p>
-					</div>
-
-					<div class="home__buttons">
+					<div class="hero-ctas">
+						<a href="#projects" class="btn btn-primary">Ver proyectos</a>
 						<a
-							class="btn"
-							href="#"
-							title="Descargar mi CV"
-							download="my_cv"
-							rel="noreferrer nofollow"
+							href="assets/02a8c456-0782-4e98-a0dc-1226ab0eccc2.pdf"
+							class="btn btn-ghost"
+							download
+							>Descargar CV</a
 						>
-							Descargar CV
-						</a>
+					</div>
+
+					<ul class="hero-meta">
+						<li><strong>Ubicación:</strong> Bogotá, Colombia</li>
+						<li><strong>Idiomas:</strong> Español (nativo) · Inglés (C1)</li>
+					</ul>
+				</div>
+
+				<div class="hero-right">
+					<div class="avatar">
+						<img src="assets/img/foto7.jpg" alt="Foto de Andrés Felipe" />
+					</div>
+
+					<div class="hero-skills">
+						<span class="pill">HTML</span>
+						<span class="pill">CSS</span>
+						<span class="pill">JavaScript</span>
+						<span class="pill">React</span>
+						<span class="pill">Node.js</span>
 					</div>
 				</div>
 			</section>
 
-			<section id="about" class="about section">
-				<h2 class="section__title">Acerca de Mí</h2>
+			<!-- ABOUT -->
+			<section id="about" class="about container">
+				<h2 class="section-title">Sobre mí</h2>
 
-				<div class="about__container grid--container">
-					<p class="about__description">
-						Lorem ipsum dolor sit amet consectetur, adipisicing elit. Amet
-						incidunt aut distinctio maxime recusandae. Velit exercitationem
-						ducimus cupiditate corrupti eveniet soluta accusamus quasi,
-						suscipit, vitae optio, officiis rerum cumque numquam.
-					</p>
-
-					<div class="about__cards flex--container">
-						<!--Card 1 -->
-						<div class="about__card">
-							<img
-								class="about__card--img"
-								src="assets/img/beyota-working.png"
-								alt="Laborando como ingeniero"
-								title="Laborando como ingeniero"
-							/>
-						</div>
-						<!--Card 2 -->
-						<div class="about__card">
-							<img
-								class="about__card--img"
-								src="assets/img//beyota-bodywork.png"
-								alt="Laborando como diseñador"
-								title="Laborando como diseñador"
-							/>
-						</div>
-						<!--Card 3 -->
-						<div class="about__card">
-							<img
-								class="about__card--img"
-								src="assets/img/beyota-reading.png"
-								alt="Trabajando en equipo"
-								title="rabajando en equipo"
-							/>
-						</div>
-					</div>
-				</div>
-			</section>
-
-			<section id="skills" class="skills section">
-				<h2 class="section__title">Habilidades</h2>
-
-				<div class="skills__container grid--container">
-					<p class="skills__description flex--container">
-						Lorem ipsum dolor sit amet consectetur, adipisicing elit. Amet
-						incidunt aut distinctio maxime recusandae. Velit exercitationem
-						ducimus cupiditate corrupti eveniet soluta accusamus quasi,
-						suscipit, vitae optio, officiis rerum cumque numquam.
-					</p>
-
-					<div class="skills__wrapper flex--container">
-						<div class="skills__cards flex--container">
-							<!--Card 1 -->
-							<details class="skills__cards-container" name="moreInfo" open>
-								<summary class="skills__cards-title flex--container">
-									<i class="bx bxl-html5 flex--container"></i>
-								</summary>
-								<div class="skills__card-container">
-									<h3 class="skills__card-title">HTML</h3>
-
-									<p class="skills__card-description">
-										Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-										Est, fuga nesciunt, officia nobis blanditiis in aperiam
-										voluptatum officiis repellendus beatae consectetur. In,
-										provident excepturi? Ratione doloribus consequuntur sit
-										officia cupiditate.
-									</p>
-								</div>
-							</details>
-							<!--Card 2 -->
-							<details class="skills__cards-container" name="moreInfo">
-								<summary class="skills__cards-title flex--container">
-									<i class="bx bxl-css3 flex--container"></i>
-								</summary>
-								<div class="skills__card-container">
-									<h3 class="skills__card-title">CSS3</h3>
-
-									<p class="skills__card-description">
-										Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-										Est, fuga nesciunt, officia nobis blanditiis in aperiam
-										voluptatum officiis repellendus beatae consectetur. In,
-										provident excepturi? Ratione doloribus consequuntur sit
-										officia cupiditate.
-									</p>
-								</div>
-							</details>
-							<!--Card 3 -->
-							<details class="skills__cards-container" name="moreInfo">
-								<summary class="skills__cards-title flex--container">
-									<i class="bx bxl-javascript flex--container"></i>
-								</summary>
-								<div class="skills__card-container">
-									<h3 class="skills__card-title">Javascript</h3>
-
-									<p class="skills__card-description">
-										Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-										Est, fuga nesciunt, officia nobis blanditiis in aperiam
-										voluptatum officiis repellendus beatae consectetur. In,
-										provident excepturi? Ratione doloribus consequuntur sit
-										officia cupiditate.
-									</p>
-								</div>
-							</details>
-							<!--Card 4 -->
-							<details class="skills__cards-container" name="moreInfo">
-								<summary class="skills__cards-title flex--container">
-									<i class="bx bxl-react flex--container"></i>
-								</summary>
-								<div class="skills__card-container">
-									<h3 class="skills__card-title">React</h3>
-
-									<p class="skills__card-description">
-										Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-										Est, fuga nesciunt, officia nobis blanditiis in aperiam
-										voluptatum officiis repellendus beatae consectetur. In,
-										provident excepturi? Ratione doloribus consequuntur sit
-										officia cupiditate.
-									</p>
-								</div>
-							</details>
-						</div>
-					</div>
-					<div class="skills__tags flex--container">
-						<h3 class="skills__tags-title">Habilidades Blandas</h3>
-						<div class="skills__tags-container flex--container">
-							<span class="skills__tag">Responsable</span>
-							<span class="skills__tag">Trabajo en equipo</span>
-							<span class="skills__tag">Creativo</span>
-							<span class="skills__tag">Puntual</span>
-							<span class="skills__tag">Proactivo</span>
-							<span class="skills__tag">Autodidacta</span>
-						</div>
-					</div>
-				</div>
-			</section>
-
-			<section id="projects" class="projects section">
-				<h2 class="section__title">Proyectos</h2>
-
-				<div class="projects__container grid--container">
-					<div class="projects__project">
-						<div class="projects__inner grid--container">
-							<div class="projects__image">
-								<img
-									src="assets/img/project1.jpg"
-									alt="project 1"
-									title="Ecommerce Vanilla"
-								/>
-							</div>
-
-							<div class="projects__info">
-								<h3 class="projects__name">Proyecto 1</h3>
-								<p class="projects__description">
-									Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-								</p>
-
-								<div class="projects__buttons">
-									<button class="btn projects__button" type="button">
-										VER DEMO
-									</button>
-									<button class="btn projects__button" type="button">
-										VER CÓDIGO
-									</button>
-								</div>
-							</div>
-						</div>
-					</div>
-
-					<div class="projects__project">
-						<div class="projects__inner grid--container">
-							<div class="projects__image">
-								<img
-									src="assets/img/project2.png"
-									alt="project 1"
-									title="Consumiendo API Pokemon con React"
-								/>
-							</div>
-
-							<div class="projects__info">
-								<h3 class="projects__name">Proyecto 2</h3>
-								<p class="projects__description">
-									Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-								</p>
-
-								<div class="projects__buttons">
-									<button class="btn projects__button" type="button">
-										VER DEMO
-									</button>
-									<button class="btn projects__button" type="button">
-										VER CÓDIGO
-									</button>
-								</div>
-							</div>
-						</div>
-					</div>
-
-					<div class="projects__project">
-						<div class="projects__inner grid--container">
-							<div class="projects__image">
-								<img
-									src="assets/img/project3.jpg"
-									alt="project 1"
-									title="CRUD con React"
-								/>
-							</div>
-
-							<div class="projects__info">
-								<h3 class="projects__name">Proyecto 3</h3>
-								<p class="projects__description">
-									Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-								</p>
-
-								<div class="projects__buttons">
-									<button class="btn projects__button" type="button">
-										VER DEMO
-									</button>
-									<button class="btn projects__button" type="button">
-										VER CÓDIGO
-									</button>
-								</div>
-							</div>
-						</div>
-					</div>
-
-					<div class="projects__project">
-						<div class="projects__inner grid--container">
-							<div class="projects__image">
-								<img
-									src="assets/img/project4.png"
-									alt="project 1"
-									title="Aplicación del tiempo con React"
-								/>
-							</div>
-
-							<div class="projects__info">
-								<h3 class="projects__name">Proyecto 4</h3>
-								<p class="projects__description">
-									Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-								</p>
-
-								<div class="projects__buttons">
-									<button class="btn projects__button" type="button">
-										VER DEMO
-									</button>
-									<button class="btn projects__button" type="button">
-										VER CÓDIGO
-									</button>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</section>
-
-			<section id="contact" class="contact section">
-				<h2 class="section__title">Contacto</h2>
-
-				<div class="contact__container grid--container">
-					<div class="contact__info">
-						<h3 class="contact__info-title">Información de contacto</h3>
-						<p class="contact__info-description">
-							Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+				<div class="about-grid">
+					<div class="about-text">
+						<p>
+							Soy <strong>Desarrollador Web Full Stack</strong> con formación y
+							experiencia que combinan pensamiento analítico, trabajo en equipo
+							y empatía. Estudié 10 semestres de Medicina, lo que fortaleció mi
+							capacidad de análisis, y trabajé en Scotiabank Colpatria en
+							atención al cliente y cobranzas (inglés) — habilidades que ahora
+							aplico en tecnología.
 						</p>
 
-						<address class="contact__info-data">
-							<div class="contact__info-item">
-								<i class="bx bxl-whatsapp"></i>
-
-								<span class="contact__info-number">
-									<a
-										href="https://wa.me/0000000000000?text=Tu%20Mensaje%20De%20Texto"
-										target="_blank"
-										rel="noreferrer nofollow"
-										>Enviar mensaje a WhatsApp</a
-									>
-								</span>
-							</div>
-
-							<div class="contact__info-item">
-								<i class="bx bx-phone"></i>
-
-								<span class="contact__info-number">
-									<a
-										href="tel:1-234-567-8910"
-										target="_blank"
-										rel="noreferrer nofollow"
-									>
-										+1 123 456 7890
-									</a>
-								</span>
-							</div>
-
-							<div class="contact__info-item">
-								<i class="bx bxs-envelope"></i>
-
-								<span class="contact__info-mail">
-									<a
-										id="mail"
-										href="mailto:test@correo.com"
-										target="_blank"
-										rel="noreferrer nofollow"
-									>
-										test@correo.com
-									</a>
-								</span>
-							</div>
-
-							<div class="contact__info-item">
-								<i class="bx bx-map"></i>
-
-								<span class="contact__info-map"> Bogotá, Colombia. </span>
-							</div>
-						</address>
+						<p>
+							Me especializo en JavaScript moderno, desarrollo con React y
+							creación de APIs con Node.js/Express. Trabajo con buenas
+							prácticas, tests básicos y enfoque hacia la experiencia de
+							usuario.
+						</p>
 					</div>
-					<div class="contact__form">
-						<h3 class="contact__form-title">Enviar mensaje</h3>
-						<form id="form" class="contact__form-container">
-							<div class="contact__form-group">
-								<label for="name" class="contact__form-label">Nombre</label>
-								<input
-									type="text"
-									id="name"
-									name="name"
-									class="contact__form-input"
-								/>
-							</div>
 
-							<div class="contact__form-group">
-								<label for="email" class="contact__form-label">Correo</label>
-								<input
-									type="email"
-									id="email"
-									name="email"
-									class="contact__form-input"
-								/>
-							</div>
+					<div class="about-cards">
+						<div class="card">
+							<h3>Experiencia</h3>
+							<p>
+								+2 años construyendo aplicaciones web (proyectos personales y
+								freelance).
+							</p>
+						</div>
 
-							<div class="contact__form-group">
-								<label for="subject" class="contact__form-label">Asunto</label>
-								<input
-									type="text"
-									id="subject"
-									name="subject"
-									class="contact__form-input"
-								/>
-							</div>
+						<div class="card">
+							<h3>Formación</h3>
+							<p>
+								10 semestres de Medicina • Cursos intensivos en desarrollo web
+								(Bootcamp / self-learning).
+							</p>
+						</div>
 
-							<div class="contact__form-group">
-								<label for="message" class="contact__form-label">Mensaje</label>
-								<textarea
-									id="message"
-									name="message"
-									cols="30"
-									rows="10"
-									class="contact__form-input"
-								></textarea>
-							</div>
-							<dialog class="contact__form-modal" id="modal">
-								Formulario enviado con éxito!
-								<button type="reset" id="btn_close-modal">Cerrar</button>
-							</dialog>
-
-							<button type="submit" class="btn contact__form-button">
-								Enviar
-							</button>
-						</form>
+						<div class="card">
+							<h3>Trabajo</h3>
+							<p>
+								Desarrollo Frontend y Backend, integración de APIs, despliegue y
+								mantenimiento.
+							</p>
+						</div>
 					</div>
 				</div>
+			</section>
+
+			<!-- SKILLS -->
+			<section id="skills" class="skills container section-muted">
+				<h2 class="section-title">Habilidades técnicas</h2>
+
+				<div class="skills-grid">
+					<div class="skill-card">
+						<h4>Frontend</h4>
+						<p>HTML5, CSS3, Responsive Design, React, accesibilidad (a11y).</p>
+					</div>
+
+					<div class="skill-card">
+						<h4>Backend</h4>
+						<p>
+							Node.js, Express, REST APIs, autenticación JWT, PostgreSQL /
+							MongoDB.
+						</p>
+					</div>
+
+					<div class="skill-card">
+						<h4>Herramientas</h4>
+						<p>Git, GitHub, Postman, Docker (básico), Vite / Webpack.</p>
+					</div>
+
+					<div class="skill-card">
+						<h4>Metodologías</h4>
+						<p>SCRUM, TDD (tests básicos), code review y buenas prácticas.</p>
+					</div>
+				</div>
+			</section>
+
+			<!-- PROJECTS -->
+			<section id="projects" class="projects container">
+				<h2 class="section-title">Proyectos destacados</h2>
+
+				<div class="projects-grid">
+					<article class="project">
+						<img src="assets/img/project1.jpg" alt="Proyecto 1" />
+						<div class="project-body">
+							<h3>E-commerce Dinámico</h3>
+							<p>
+								Carrito, catálogo y experiencia de compra. Frontend en React y
+								mock API.
+							</p>
+							<div class="project-tags">
+								<span>React</span><span>JS</span><span>UI</span>
+							</div>
+						</div>
+					</article>
+
+					<article class="project">
+						<img src="assets/img/project2.jpg" alt="Proyecto 2" />
+						<div class="project-body">
+							<h3>Panel Administrativo</h3>
+							<p>
+								Dashboard para gestión de usuarios y reportes. React + APIs.
+							</p>
+							<div class="project-tags">
+								<span>React</span><span>API</span><span>UX</span>
+							</div>
+						</div>
+					</article>
+
+					<article class="project">
+						<img src="assets/img/project3.jpg" alt="Proyecto 3" />
+						<div class="project-body">
+							<h3>API RESTful</h3>
+							<p>
+								Servidor en Node.js con endpoints para CRUD y autenticación.
+							</p>
+							<div class="project-tags">
+								<span>Node.js</span><span>Express</span><span>DB</span>
+							</div>
+						</div>
+					</article>
+				</div>
+			</section>
+
+			<!-- GALLERY -->
+			<section class="gallery container section-muted">
+				<h2 class="section-title">Galería</h2>
+				<div class="gallery-grid">
+					<img src="assets/img/foto4.jpg" alt="foto4" />
+					<img src="assets/img/foto5.jpg" alt="foto5" />
+					<img src="assets/img/foto6.jpg" alt="foto6" />
+				</div>
+			</section>
+
+			<!-- CONTACT -->
+			<section id="contact" class="contact container">
+				<h2 class="section-title">Contacto</h2>
+
+				<div class="contact-grid">
+					<form id="form" class="contact-form" novalidate>
+						<input
+							name="name"
+							class="input"
+							type="text"
+							placeholder="Tu nombre"
+							required
+						/>
+						<input
+							name="email"
+							class="input"
+							type="email"
+							placeholder="Tu email"
+							required
+						/>
+						<input
+							name="subject"
+							class="input"
+							type="text"
+							placeholder="Asunto"
+							required
+						/>
+						<textarea
+							name="message"
+							class="input"
+							rows="6"
+							placeholder="Tu mensaje"
+							required
+						></textarea>
+
+						<div class="form-actions">
+							<button type="submit" class="btn btn-primary btn-send">
+								Enviar Mensaje
+							</button>
+						</div>
+					</form>
+
+					<aside class="contact-card">
+						<h3>Información</h3>
+						<p><i class="bx bx-envelope"></i> felipe@email.com</p>
+						<p><i class="bx bx-phone"></i> +57 300 000 0000</p>
+						<p><i class="bx bx-map"></i> Bogotá, Colombia</p>
+					</aside>
+				</div>
+
+				<dialog id="modal" class="modal">
+					<p>¡Mensaje enviado con éxito! Gracias por escribirme.</p>
+					<div style="text-align: right; margin-top: 0.6rem">
+						<button id="btn_close-modal" class="btn btn-ghost">Cerrar</button>
+					</div>
+				</dialog>
 			</section>
 		</main>
 
-		<footer class="footer section">
-			<div class="footer__container grid--container">
-				<div class="footer__info">
-					<h3 class="footer__title">Bellota Utonio</h3>
-					<p class="footer__description">
-						Soy desarrolladora web, apasionada por la tecnología y la
-						programación.
-					</p>
+		<!-- FOOTER -->
+		<footer class="site-footer">
+			<div class="container footer-inner">
+				<div class="footer-left">
+					<strong>Andrés Felipe</strong> · Desarrollador Web Full Stack
 				</div>
-
-				<div class="footer__social">
-					<h3 class="footer__title">Redes Sociales</h3>
-
-					<ul class="footer__social-list">
-						<li class="footer__social-item">
-							<a
-								class="footer__social-link"
-								href="#"
-								target="_blank"
-								rel="noreferrer nofollow"
-								><i class="bx bxl-facebook"></i
-							></a>
-						</li>
-
-						<li class="footer__social-item">
-							<a
-								class="footer__social-link"
-								href="#"
-								target="_blank"
-								rel="noreferrer nofollow"
-								><i class="bx bxl-instagram"></i
-							></a>
-						</li>
-
-						<li class="footer__social-item">
-							<a
-								class="footer__social-link"
-								href="#"
-								target="_blank"
-								rel="noreferrer nofollow"
-								><i class="bx bxl-twitter"></i
-							></a>
-						</li>
-
-						<li class="footer__social-item">
-							<a
-								class="footer__social-link"
-								href="#"
-								target="_blank"
-								rel="noreferrer nofollow"
-								><i class="bx bxl-linkedin"></i
-							></a>
-						</li>
-					</ul>
+				<div class="footer-right">
+					<span id="year"></span>
 				</div>
 			</div>
-
-			<p class="footer__copy"><span></span> Todos los derechos reservados</p>
 		</footer>
+
+		<!-- EmailJS lib -->
+		<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+		<script>
+			if (window.emailjs)
+				try {
+					emailjs.init('vM-4iXnxMTrVF1mD8');
+				} catch (e) {}
+		</script>
+
+		<!-- Scripts (defer para que no bloqueen) -->
+		<script defer src="assets/js/helpers/reload_page.js"></script>
+		<script defer src="assets/js/components/date-updater.js"></script>
+		<script defer src="assets/js/components/parallax.js"></script>
+		<script defer src="assets/js/components/selected_menu.js"></script>
+		<script defer src="assets/js/components/send_form.js"></script>
+		<script defer src="assets/js/main.js"></script>
 	</body>
 </html>

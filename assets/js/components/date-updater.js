@@ -1,9 +1,9 @@
-const dateContainerDOM = document.querySelector('.footer__copy span');
-
-function dateUpdater() {
-	const currentYear = new Date().getFullYear();
-
-	dateContainerDOM.textContent = `@ ${currentYear}`;
-}
-
-export default dateUpdater;
+// date-updater.js
+(function () {
+	function updateYear() {
+		const el = document.getElementById('year');
+		if (!el) return;
+		el.textContent = new Date().getFullYear();
+	}
+	document.addEventListener('DOMContentLoaded', updateYear);
+})();

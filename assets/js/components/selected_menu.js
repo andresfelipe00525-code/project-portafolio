@@ -1,28 +1,24 @@
-const navbarContainerDOM = document.querySelector('.navbar__list');
-const navbarLinksDOM = document.querySelectorAll('.navbar__link');
-const sectionsDOM = document.querySelectorAll('section');
+// selected_menu.js — marca enlace activo según scroll
+(function () {
+	const sections = Array.from(document.querySelectorAll('section[id]'));
+	const links = Array.from(document.querySelectorAll('.nav-link'));
 
-function selectedMenu() {
-	const scrollPosition = window.scrollY + 100;
+	if (!sections.length || !links.length) return;
 
-	sectionsDOM.forEach((section, index) => {
-		if (
-			scrollPosition >= section.offsetTop &&
-			scrollPosition < section.offsetTop + section.offsetHeight
-		) {
-			const activeLink = navbarContainerDOM.querySelector(
-				'.navbar__link.active',
-			);
+	function onScroll() {
+		const scrollY = window.scrollY + 120;
+		let currentId = '';
+		sections.forEach((sec) => {
+			const top = sec.offsetTop;
+			const h = sec.offsetHeight;
+			if (scrollY >= top && scrollY < top + h) currentId = sec.id;
+		});
+		links.forEach((l) => {
+			l.classList.toggle('active', l.getAttribute('href') === '#' + currentId);
+		});
+	}
 
-			if (activeLink) {
-				activeLink.classList.remove('active');
-			}
-
-			navbarLinksDOM[index].classList.add('active');
-		}
-	});
-}
-
-window.addEventListener('scroll', selectedMenu);
-
-export default selectedMenu;
+	window.addEventListener('scroll', onScroll);
+	window.addEventListener('load', onScroll);
+	onScroll();
+})();
