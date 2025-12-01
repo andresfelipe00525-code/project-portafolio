@@ -1,349 +1,161 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-theme="light">
 	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width,initial-scale=1" />
-		<meta name="author" content="Andrés Felipe" />
-		<meta
-			name="description"
-			content="Andrés Felipe - Desarrollador Web Full Stack (HTML, CSS, JavaScript, React, Node.js)"
-		/>
-		<meta name="theme-color" content="#f7f7f7" />
-		<title>Andrés Felipe — Desarrollador Full Stack</title>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Andrés Felipe - Portafolio</title>
 
-		<!-- Fonts & Icons -->
-		<link
-			href="https://cdn.jsdelivr.net/npm/boxicons@2.1.4/css/boxicons.min.css"
-			rel="stylesheet"
-		/>
-		<link
-			href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
-			rel="stylesheet"
-		/>
-
-		<!-- Style -->
-		<link rel="stylesheet" href="assets/css/style.css" />
+		<link rel="stylesheet" href="./assets/css/style.css" />
+		<link rel="icon" href="./assets/img/foto7.jpg" type="image/jpeg" />
 	</head>
-
 	<body>
-		<!-- Loader -->
-		<div id="loader" class="loader">
-			<img src="assets/img/logo.svg" alt="loader" />
-		</div>
+		<div id="loader"></div>
 
-		<!-- Header -->
-		<header class="site-header">
-			<div class="container header-inner">
-				<a class="brand" href="#home">
-					<img src="assets/img/logo.svg" alt="logo" class="brand-logo" />
-					<span class="brand-text">Andrés Felipe</span>
-				</a>
-
-				<nav class="nav" aria-label="Main navigation">
-					<a class="nav-link" href="#home">Inicio</a>
-					<a class="nav-link" href="#about">Sobre mí</a>
-					<a class="nav-link" href="#skills">Habilidades</a>
-					<a class="nav-link" href="#projects">Proyectos</a>
-					<a class="nav-link" href="#contact">Contacto</a>
+		<header class="header">
+			<div class="container header-content">
+				<h1 class="logo">Andrés Felipe</h1>
+				<nav class="navbar">
+					<a href="#home" data-i18n="nav.home">Inicio</a>
+					<a href="#about" data-i18n="nav.about">Sobre mí</a>
+					<a href="#skills" data-i18n="nav.skills">Habilidades</a>
+					<a href="#projects" data-i18n="nav.projects">Proyectos</a>
+					<a href="#gallery" data-i18n="nav.gallery">Galería</a>
+					<a href="#contact" data-i18n="nav.contact">Contacto</a>
 				</nav>
-
 				<div class="controls">
-					<button id="dark-toggle" class="icon-btn" aria-label="Toggle tema">
-						<i class="bx bx-moon"></i>
-					</button>
-					<button
-						id="menu-toggle"
-						class="icon-btn mobile-only"
-						aria-label="Abrir menú"
-					>
-						<i class="bx bx-menu"></i>
-					</button>
+					<button id="theme-toggle" class="btn-control">🌙</button>
+					<div class="lang-switcher">
+						<button id="lang-es" class="btn-lang active-lang">ES</button>
+						<button id="lang-en" class="btn-lang">EN</button>
+					</div>
 				</div>
 			</div>
 		</header>
 
-		<!-- Mobile menu -->
-		<div id="mobile-menu" class="mobile-menu" aria-hidden="true">
-			<button id="mobile-close" class="icon-btn" aria-label="Cerrar menú">
-				<i class="bx bx-x"></i>
-			</button>
-			<nav class="mobile-nav">
-				<a class="nav-link" href="#home">Inicio</a>
-				<a class="nav-link" href="#about">Sobre mí</a>
-				<a class="nav-link" href="#skills">Habilidades</a>
-				<a class="nav-link" href="#projects">Proyectos</a>
-				<a class="nav-link" href="#contact">Contacto</a>
-			</nav>
-		</div>
-
-		<!-- MAIN -->
 		<main>
-			<!-- HERO -->
-			<section id="home" class="hero container">
-				<div class="hero-left">
-					<h1 class="hero-title">
-						Hola, soy <span class="accent">Andrés Felipe</span>
-					</h1>
-					<p class="hero-sub">
-						Desarrollador Web Full Stack — me enfoco en construir aplicaciones
-						robustas, limpias y accesibles con JavaScript, React y Node.js.
+			<section id="home" class="section hero">
+				<div class="home__parallax">
+					<!-- Fondo -->
+					<div class="home__layer" data-speed="6">
+						<img
+							class="home__img"
+							src="./assets/img/foto7.jpg"
+							alt="Foto fondo"
+						/>
+					</div>
+
+					<!-- Capa media -->
+					<div class="home__layer" data-speed="4">
+						<div class="hero-meta meta-floating">
+							<p>📍 Bogotá, Colombia</p>
+							<p>🌎 Español — Inglés C1</p>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section id="about" class="section">
+				<div class="container">
+					<h2 data-i18n="about.title">Sobre mí</h2>
+					<p data-i18n="about.text">
+						Soy desarrollador web Full Stack con experiencia en proyectos
+						reales, especializado en React, Node.js y JavaScript moderno. Me
+						enfoco en construir interfaces limpias, aplicaciones escalables y
+						soluciones de alto rendimiento orientadas al usuario.
 					</p>
-
-					<div class="hero-ctas">
-						<a href="#projects" class="btn btn-primary">Ver proyectos</a>
-						<a
-							href="assets/02a8c456-0782-4e98-a0dc-1226ab0eccc2.pdf"
-							class="btn btn-ghost"
-							download
-							>Descargar CV</a
-						>
-					</div>
-
-					<ul class="hero-meta">
-						<li><strong>Ubicación:</strong> Bogotá, Colombia</li>
-						<li><strong>Idiomas:</strong> Español (nativo) · Inglés (C1)</li>
-					</ul>
 				</div>
+			</section>
 
-				<div class="hero-right">
-					<div class="avatar">
-						<img src="assets/img/foto7.jpg" alt="Foto de Andrés Felipe" />
-					</div>
-
-					<div class="hero-skills">
-						<span class="pill">HTML</span>
-						<span class="pill">CSS</span>
-						<span class="pill">JavaScript</span>
-						<span class="pill">React</span>
-						<span class="pill">Node.js</span>
+			<section id="skills" class="section bg-secondary">
+				<div class="container">
+					<h2 data-i18n="skills.title">Habilidades Técnicas</h2>
+					<div class="skills-grid">
+						<div class="skill-card"><h3>HTML & CSS</h3></div>
+						<div class="skill-card"><h3>JavaScript (ES6+)</h3></div>
+						<div class="skill-card"><h3>React.js</h3></div>
+						<div class="skill-card"><h3>Node.js & Express</h3></div>
+						<div class="skill-card"><h3>Databases (SQL/NoSQL)</h3></div>
+						<div class="skill-card"><h3>Git & GitHub</h3></div>
 					</div>
 				</div>
 			</section>
 
-			<!-- ABOUT -->
-			<section id="about" class="about container">
-				<h2 class="section-title">Sobre mí</h2>
-
-				<div class="about-grid">
-					<div class="about-text">
-						<p>
-							Soy <strong>Desarrollador Web Full Stack</strong> con formación y
-							experiencia que combinan pensamiento analítico, trabajo en equipo
-							y empatía. Estudié 10 semestres de Medicina, lo que fortaleció mi
-							capacidad de análisis, y trabajé en Scotiabank Colpatria en
-							atención al cliente y cobranzas (inglés) — habilidades que ahora
-							aplico en tecnología.
-						</p>
-
-						<p>
-							Me especializo en JavaScript moderno, desarrollo con React y
-							creación de APIs con Node.js/Express. Trabajo con buenas
-							prácticas, tests básicos y enfoque hacia la experiencia de
-							usuario.
-						</p>
-					</div>
-
-					<div class="about-cards">
-						<div class="card">
-							<h3>Experiencia</h3>
-							<p>
-								+2 años construyendo aplicaciones web (proyectos personales y
-								freelance).
-							</p>
+			<section id="projects" class="section">
+				<div class="container">
+					<h2 data-i18n="projects.title">Proyectos</h2>
+					<div class="projects-grid">
+						<div class="project-card">
+							<iframe></iframe>
+							<h3>Project One</h3>
+							<p>Descripción breve del proyecto uno.</p>
+							<a href="#">Ver proyecto</a>
 						</div>
-
-						<div class="card">
-							<h3>Formación</h3>
-							<p>
-								10 semestres de Medicina • Cursos intensivos en desarrollo web
-								(Bootcamp / self-learning).
-							</p>
+						<div class="project-card">
+							<iframe></iframe>
+							<h3>Project Two</h3>
+							<p>Descripción breve del proyecto dos.</p>
+							<a href="#">Ver proyecto</a>
 						</div>
-
-						<div class="card">
-							<h3>Trabajo</h3>
-							<p>
-								Desarrollo Frontend y Backend, integración de APIs, despliegue y
-								mantenimiento.
-							</p>
+						<div class="project-card">
+							<iframe></iframe>
+							<h3>Project Three</h3>
+							<p>Descripción breve del proyecto tres.</p>
+							<a href="#">Ver proyecto</a>
 						</div>
 					</div>
 				</div>
 			</section>
 
-			<!-- SKILLS -->
-			<section id="skills" class="skills container section-muted">
-				<h2 class="section-title">Habilidades técnicas</h2>
-
-				<div class="skills-grid">
-					<div class="skill-card">
-						<h4>Frontend</h4>
-						<p>HTML5, CSS3, Responsive Design, React, accesibilidad (a11y).</p>
-					</div>
-
-					<div class="skill-card">
-						<h4>Backend</h4>
-						<p>
-							Node.js, Express, REST APIs, autenticación JWT, PostgreSQL /
-							MongoDB.
-						</p>
-					</div>
-
-					<div class="skill-card">
-						<h4>Herramientas</h4>
-						<p>Git, GitHub, Postman, Docker (básico), Vite / Webpack.</p>
-					</div>
-
-					<div class="skill-card">
-						<h4>Metodologías</h4>
-						<p>SCRUM, TDD (tests básicos), code review y buenas prácticas.</p>
+			<section id="gallery" class="section bg-secondary">
+				<div class="container">
+					<h2 data-i18n="gallery.title">Galería</h2>
+					<div class="gallery-grid">
+						<img src="./assets/img/foto4.jpg" alt="Foto 4" />
+						<img src="./assets/img/foto5.jpg" alt="Foto 5" />
+						<img src="./assets/img/foto6.jpg" alt="Foto 6" />
 					</div>
 				</div>
 			</section>
 
-			<!-- PROJECTS -->
-			<section id="projects" class="projects container">
-				<h2 class="section-title">Proyectos destacados</h2>
-
-				<div class="projects-grid">
-					<article class="project">
-						<img src="assets/img/project1.jpg" alt="Proyecto 1" />
-						<div class="project-body">
-							<h3>E-commerce Dinámico</h3>
-							<p>
-								Carrito, catálogo y experiencia de compra. Frontend en React y
-								mock API.
-							</p>
-							<div class="project-tags">
-								<span>React</span><span>JS</span><span>UI</span>
-							</div>
-						</div>
-					</article>
-
-					<article class="project">
-						<img src="assets/img/project2.jpg" alt="Proyecto 2" />
-						<div class="project-body">
-							<h3>Panel Administrativo</h3>
-							<p>
-								Dashboard para gestión de usuarios y reportes. React + APIs.
-							</p>
-							<div class="project-tags">
-								<span>React</span><span>API</span><span>UX</span>
-							</div>
-						</div>
-					</article>
-
-					<article class="project">
-						<img src="assets/img/project3.jpg" alt="Proyecto 3" />
-						<div class="project-body">
-							<h3>API RESTful</h3>
-							<p>
-								Servidor en Node.js con endpoints para CRUD y autenticación.
-							</p>
-							<div class="project-tags">
-								<span>Node.js</span><span>Express</span><span>DB</span>
-							</div>
-						</div>
-					</article>
-				</div>
-			</section>
-
-			<!-- GALLERY -->
-			<section class="gallery container section-muted">
-				<h2 class="section-title">Galería</h2>
-				<div class="gallery-grid">
-					<img src="assets/img/foto4.jpg" alt="foto4" />
-					<img src="assets/img/foto5.jpg" alt="foto5" />
-					<img src="assets/img/foto6.jpg" alt="foto6" />
-				</div>
-			</section>
-
-			<!-- CONTACT -->
-			<section id="contact" class="contact container">
-				<h2 class="section-title">Contacto</h2>
-
-				<div class="contact-grid">
-					<form id="form" class="contact-form" novalidate>
-						<input
-							name="name"
-							class="input"
-							type="text"
-							placeholder="Tu nombre"
-							required
-						/>
-						<input
-							name="email"
-							class="input"
-							type="email"
-							placeholder="Tu email"
-							required
-						/>
-						<input
-							name="subject"
-							class="input"
-							type="text"
-							placeholder="Asunto"
-							required
-						/>
-						<textarea
-							name="message"
-							class="input"
-							rows="6"
-							placeholder="Tu mensaje"
-							required
-						></textarea>
-
-						<div class="form-actions">
-							<button type="submit" class="btn btn-primary btn-send">
-								Enviar Mensaje
-							</button>
-						</div>
-					</form>
-
-					<aside class="contact-card">
-						<h3>Información</h3>
-						<p><i class="bx bx-envelope"></i> felipe@email.com</p>
-						<p><i class="bx bx-phone"></i> +57 300 000 0000</p>
-						<p><i class="bx bx-map"></i> Bogotá, Colombia</p>
-					</aside>
-				</div>
-
-				<dialog id="modal" class="modal">
-					<p>¡Mensaje enviado con éxito! Gracias por escribirme.</p>
-					<div style="text-align: right; margin-top: 0.6rem">
-						<button id="btn_close-modal" class="btn btn-ghost">Cerrar</button>
+			<section id="contact" class="contact-section">
+				<div class="contact-container">
+					<div class="contact-form">
+						<h2 data-i18n="contact.title">Contacto</h2>
+						<form>
+							<input type="text" name="name" placeholder="Tu Nombre" required />
+							<input
+								type="email"
+								name="email"
+								placeholder="Tu Correo Electrónico"
+								required
+							/>
+							<textarea
+								name="message"
+								placeholder="Tu Mensaje"
+								required
+							></textarea>
+							<button type="submit">Enviar Mensaje</button>
+						</form>
 					</div>
-				</dialog>
+					<div class="contact-info">
+						<h3>Información de Contacto</h3>
+						<p>📧 andres@example.com</p>
+						<p>📞 +57 300 000 0000</p>
+						<p>📍 Bogotá, Colombia</p>
+					</div>
+				</div>
 			</section>
 		</main>
 
-		<!-- FOOTER -->
-		<footer class="site-footer">
-			<div class="container footer-inner">
-				<div class="footer-left">
-					<strong>Andrés Felipe</strong> · Desarrollador Web Full Stack
-				</div>
-				<div class="footer-right">
-					<span id="year"></span>
-				</div>
+		<footer class="footer">
+			<div class="container">
+				<p>
+					&copy; <span id="current-year"></span> Andrés Felipe. Todos los
+					derechos reservados.
+				</p>
 			</div>
 		</footer>
-
-		<!-- EmailJS lib -->
-		<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-		<script>
-			if (window.emailjs)
-				try {
-					emailjs.init('vM-4iXnxMTrVF1mD8');
-				} catch (e) {}
-		</script>
-
-		<!-- Scripts (defer para que no bloqueen) -->
-		<script defer src="assets/js/helpers/reload_page.js"></script>
-		<script defer src="assets/js/components/date-updater.js"></script>
-		<script defer src="assets/js/components/parallax.js"></script>
-		<script defer src="assets/js/components/selected_menu.js"></script>
-		<script defer src="assets/js/components/send_form.js"></script>
-		<script defer src="assets/js/main.js"></script>
+		<script type="module" src="./assets/js/helpers/translation.js"></script>
+		<script type="module" src="./assets/js/main.js"></script>
 	</body>
 </html>

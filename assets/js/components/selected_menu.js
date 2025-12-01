@@ -1,24 +1,32 @@
-// selected_menu.js — marca enlace activo según scroll
-(function () {
-	const sections = Array.from(document.querySelectorAll('section[id]'));
-	const links = Array.from(document.querySelectorAll('.nav-link'));
+const navLinks = document.querySelectorAll('.navbar a');
+const sections = document.querySelectorAll('.section');
 
-	if (!sections.length || !links.length) return;
+function setActiveLink() {
+	let current = '';
 
-	function onScroll() {
-		const scrollY = window.scrollY + 120;
-		let currentId = '';
-		sections.forEach((sec) => {
-			const top = sec.offsetTop;
-			const h = sec.offsetHeight;
-			if (scrollY >= top && scrollY < top + h) currentId = sec.id;
-		});
-		links.forEach((l) => {
-			l.classList.toggle('active', l.getAttribute('href') === '#' + currentId);
-		});
-	}
+	sections.forEach((section) => {
+		const sectionTop = section.offsetTop - 100; // Offset para mejor activación
+		if (window.scrollY >= sectionTop) {
+			current = section.getAttribute('id');
+		}
+	});
 
-	window.addEventListener('scroll', onScroll);
-	window.addEventListener('load', onScroll);
-	onScroll();
-})();
+	navLinks.forEach((link) => {
+		link.classList.remove('active');
+		if (link.getAttribute('href').includes(current)) {
+			link.classList.add('active');
+		}
+	});
+}
+
+// Inicializa al cargar
+window.addEventListener('scroll', setActiveLink);
+window.addEventListener('load', setActiveLink);
+
+// También activa la clase al hacer click (para UX)
+navLinks.forEach((link) => {
+	link.addEventListener('click', () => {
+		navLinks.forEach((l) => l.classList.remove('active'));
+		link.classList.add('active');
+	});
+});
